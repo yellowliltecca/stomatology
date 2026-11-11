@@ -1,0 +1,1179 @@
+:root {
+  --ink: #20221f;
+  --muted: #747a72;
+  --lime: #c9f16d;
+  --lime-dark: #b6df58;
+  --paper: #f7f8f5;
+  --fog: #e9ebe8;
+  --line: rgba(32, 34, 31, .12);
+  --page: 1320px;
+  font-family: Inter, "Inter Display", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { margin: 0; min-width: 320px; background: var(--paper); overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+img { display: block; max-width: 100%; }
+::selection { background: var(--lime); color: var(--ink); }
+
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 200; padding: 12px 16px; background: var(--lime); border-radius: 8px; }
+.skip-link:focus { top: 12px; }
+
+.site-header { position: absolute; z-index: 30; inset: 0 0 auto; color: #20221f; }
+.header-inner { width: calc(100% - 76px); max-width: var(--page); height: 76px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.brand-name { font-size: 13px; font-weight: 650; letter-spacing: -.035em; white-space: nowrap; }
+.desktop-nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 43px); margin-left: auto; margin-right: auto; }
+.desktop-nav a { font-size: 10px; color: rgba(32,34,31,.7); transition: color .2s ease; }
+.desktop-nav a:hover { color: #111; }
+.header-actions { display: flex; align-items: center; gap: 14px; }
+.header-phone { font-size: 10px; font-weight: 600; white-space: nowrap; }
+.button { min-height: 45px; padding: 0 23px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: -.01em; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+.button:hover { transform: translateY(-2px); }
+.button-lime { background: var(--lime); color: #20251d; box-shadow: 0 7px 18px rgba(164, 206, 75, .12); }
+.button-lime:hover { background: #d4f68a; box-shadow: 0 10px 24px rgba(164, 206, 75, .22); }
+.menu-toggle, .mobile-nav { display: none; }
+
+.hero { position: relative; min-height: 650px; isolation: isolate; overflow: hidden; background: #d4d6d3; border-radius: 0 0 38px 38px; }
+.hero::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(110deg, #c5c8c5 0%, #dfe1de 46%, #eef0ed 100%); }
+.hero::after { content: ""; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(202,205,202,.98) 0%, rgba(207,210,207,.94) 32%, rgba(216,219,215,.56) 53%, rgba(216,219,215,0) 72%); }
+.hero-photo { position: absolute; z-index: 0; right: 0; top: 0; bottom: 0; width: 61%; overflow: hidden; border-bottom-left-radius: 34% 24%; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 51% 50%; filter: saturate(.78) contrast(.96); }
+.hero-content { position: relative; z-index: 3; width: calc(100% - 76px); max-width: var(--page); min-height: 650px; margin: 0 auto; padding-top: 168px; padding-bottom: 84px; display: flex; flex-direction: column; align-items: flex-start; }
+.eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 22px; font-size: 9px; line-height: 1.3; font-weight: 700; letter-spacing: .11em; color: #687066; }
+.eyebrow-line { width: 22px; height: 1px; background: #6e776b; }
+.hero h1 { max-width: 610px; margin: 0; font-size: clamp(52px, 6.3vw, 86px); line-height: .93; letter-spacing: -.078em; font-weight: 570; color: #fff; text-shadow: 0 1px 18px rgba(30,34,31,.07); }
+.hero h1 span { color: #fff; }
+.hero-description { max-width: 390px; margin: 25px 0 0; font-size: 13px; line-height: 1.65; color: rgba(37,41,37,.76); }
+.hero-actions { display: flex; align-items: center; gap: 25px; margin-top: 28px; }
+.hero-actions .button { min-width: 190px; }
+.hero-secondary { font-size: 10px; font-weight: 650; color: rgba(32,34,31,.74); border-bottom: 1px solid rgba(32,34,31,.28); padding-bottom: 4px; }
+.hero-secondary:hover { border-color: var(--ink); color: var(--ink); }
+.hero-details { display: flex; gap: 40px; margin-top: auto; padding-top: 44px; }
+.hero-detail { display: grid; gap: 5px; min-width: 150px; }
+.detail-kicker { font-size: 7px; font-weight: 800; letter-spacing: .15em; color: rgba(37,41,37,.54); }
+.hero-detail strong { font-size: 15px; font-weight: 650; letter-spacing: -.04em; }
+.hero-detail > span:last-child { font-size: 9px; color: rgba(37,41,37,.6); }
+.hero-photo-note { position: absolute; z-index: 4; right: max(38px, calc((100vw - var(--page)) / 2)); bottom: 82px; display: flex; align-items: center; gap: 11px; padding: 13px 18px; border: 1px solid rgba(255,255,255,.48); border-radius: 999px; background: rgba(245,247,242,.68); backdrop-filter: blur(14px); box-shadow: 0 12px 36px rgba(35,40,34,.08); }
+.note-dot { width: 11px; height: 11px; flex: 0 0 auto; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 5px rgba(201,241,109,.2); }
+.hero-photo-note strong, .hero-photo-note small { display: block; }
+.hero-photo-note strong { font-size: 9px; font-weight: 750; }
+.hero-photo-note small { margin-top: 3px; font-size: 8px; color: #72786f; }
+.hero-bottom-label { position: absolute; z-index: 4; right: max(38px, calc((100vw - var(--page)) / 2)); bottom: 26px; color: rgba(255,255,255,.9); font-size: 8px; font-weight: 750; letter-spacing: .15em; }
+
+.services-section { position: relative; margin: 0 auto; padding: 76px max(38px, calc((100vw - var(--page)) / 2)) 78px; overflow: hidden; background: #eceeeb; border-radius: 38px; }
+.section-heading { max-width: 660px; margin: 0 auto; }
+.section-heading.centered { text-align: center; }
+.section-heading .eyebrow { justify-content: center; margin-bottom: 15px; }
+.section-heading h2 { margin: 0; font-size: clamp(34px, 4vw, 54px); line-height: .99; letter-spacing: -.07em; font-weight: 590; }
+.section-intro { max-width: 430px; margin: 16px auto 0; font-size: 11px; line-height: 1.65; color: var(--muted); }
+.collage-stage { position: relative; height: 435px; max-width: 1240px; margin: 30px auto 18px; }
+.collage-card { position: absolute; display: block; overflow: hidden; height: 340px; border-radius: 30px; background: #d7dbd3; box-shadow: 0 26px 54px rgba(40,45,39,.15); transition: transform .45s cubic-bezier(.2,.75,.25,1), box-shadow .35s ease; }
+.collage-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.collage-card:hover { z-index: 8; box-shadow: 0 34px 70px rgba(40,45,39,.2); }
+.collage-card:hover img { transform: scale(1.055); }
+.collage-card-smile { z-index: 1; left: 4%; top: 74px; width: 30%; transform: rotate(-9deg); }
+.collage-card-smile:hover { transform: rotate(-5deg) translateY(-7px); }
+.collage-card-treatment { z-index: 3; left: 34%; top: 12px; width: 31%; height: 365px; transform: rotate(0deg); }
+.collage-card-treatment:hover { transform: translateY(-7px); }
+.collage-card-implant { z-index: 2; right: 3%; top: 73px; width: 30%; transform: rotate(9deg); }
+.collage-card-implant:hover { transform: rotate(5deg) translateY(-7px); }
+.collage-card-smile img { object-position: center; }
+.collage-card-treatment img { object-position: center; }
+.collage-card-implant img { object-position: center; }
+.collage-card::after { content: ""; position: absolute; inset: 40% 0 0; background: linear-gradient(180deg, transparent, rgba(15,20,17,.7)); pointer-events: none; }
+.collage-label { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 17px; display: block; padding: 13px 15px; border: 1px solid rgba(255,255,255,.25); border-radius: 16px; background: rgba(28,33,29,.42); backdrop-filter: blur(12px); color: #fff; }
+.collage-label small { display: block; margin-bottom: 5px; font-size: 7px; font-weight: 750; letter-spacing: .13em; opacity: .72; }
+.collage-label strong { display: block; max-width: 240px; font-size: 14px; line-height: 1.12; letter-spacing: -.04em; font-weight: 620; }
+.service-list-wrap { position: relative; z-index: 4; max-width: 1160px; margin: 0 auto; padding-top: 16px; }
+.service-list-title { margin: 0 0 17px; font-size: 9px; font-weight: 800; letter-spacing: .13em; color: #777e74; text-transform: uppercase; }
+.service-list { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); column-gap: 28px; row-gap: 0; border-top: 1px solid var(--line); }
+.service-list a { display: flex; align-items: flex-start; gap: 10px; padding: 13px 0; border-bottom: 1px solid var(--line); transition: color .2s ease; }
+.service-list a:hover { color: #6f8f2f; }
+.service-list a > span { padding-top: 2px; color: #98a18f; font-size: 8px; font-weight: 800; }
+.service-list a div { display: grid; gap: 4px; }
+.service-list a strong { font-size: 10px; line-height: 1.25; font-weight: 700; }
+.service-list a small { font-size: 8px; line-height: 1.45; color: #858c81; font-weight: 450; }
+.service-disclaimer { margin: 16px 0 0; font-size: 9px; line-height: 1.6; color: #878d84; }
+
+.implant-section { position: relative; min-height: 820px; max-width: var(--page); margin: 0 auto; padding: 82px 38px 65px; overflow: hidden; background: #fff; }
+.implant-heading { position: relative; z-index: 3; max-width: 650px; }
+.implant-heading .eyebrow { margin-bottom: 16px; }
+.implant-heading h2 { margin: 0; font-size: clamp(38px, 4.1vw, 52px); line-height: .99; letter-spacing: -.075em; font-weight: 590; }
+.implant-heading > p:last-child { max-width: 335px; margin: 17px 0 0; font-size: 11px; line-height: 1.65; color: var(--muted); }
+.implant-visual { position: absolute; z-index: 1; left: 54%; top: 44%; width: min(57%, 680px); transform: translate(-50%,-15%); pointer-events: none; }
+.implant-visual::before { content: ""; position: absolute; z-index: -1; left: 17%; top: 15%; width: 66%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(205,242,117,.45), rgba(205,242,117,.12) 48%, transparent 70%); filter: blur(10px); }
+.implant-visual img { width: 100%; height: auto; }
+.implant-callout { position: absolute; z-index: 4; display: flex; gap: 10px; width: 225px; }
+.callout-dot { width: 8px; height: 8px; flex: 0 0 auto; margin-top: 4px; border: 2px solid #252a22; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px rgba(201,241,109,.2); }
+.implant-callout strong { display: block; font-size: 11px; line-height: 1.2; font-weight: 750; }
+.implant-callout p { margin: 7px 0 7px; font-size: 9px; line-height: 1.55; color: #81877e; }
+.implant-callout a { font-size: 9px; font-weight: 700; border-bottom: 1px solid rgba(32,34,31,.25); padding-bottom: 2px; }
+.implant-callout a:hover { border-color: var(--ink); }
+.callout-one { top: 285px; left: 6%; }
+.callout-two { top: 285px; right: 5%; }
+.callout-three { bottom: 90px; left: 11%; }
+.callout-four { bottom: 90px; right: 5%; }
+
+.recovery-section { position: relative; max-width: 1440px; min-height: 420px; margin: 0 auto; padding: 68px max(38px, calc((100vw - var(--page)) / 2)) 65px; overflow: hidden; border-radius: 38px; background: #eceeeb; isolation: isolate; }
+.recovery-section::before { content: ""; position: absolute; z-index: -1; right: -120px; top: -220px; width: 650px; height: 650px; border-radius: 50%; background: radial-gradient(circle, rgba(202,240,113,.25), transparent 70%); }
+.recovery-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; position: relative; z-index: 2; }
+.recovery-heading .eyebrow { margin-bottom: 15px; }
+.recovery-heading h2 { margin: 0; font-size: clamp(34px, 4vw, 52px); line-height: .99; letter-spacing: -.07em; font-weight: 590; }
+.recovery-heading > p { max-width: 300px; margin: 0 4% 5px 0; font-size: 10px; line-height: 1.65; color: #7a8177; }
+.recovery-cards { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 34px; }
+.recovery-card { min-height: 130px; padding: 18px 17px 16px; border: 1px solid rgba(255,255,255,.85); border-radius: 18px; background: rgba(255,255,255,.88); box-shadow: 0 8px 20px rgba(45,50,43,.025); }
+.recovery-card > span { display: block; margin-bottom: 15px; font-size: 8px; font-weight: 800; color: #a4ad9b; }
+.recovery-card strong { display: block; max-width: 220px; font-size: 13px; line-height: 1.2; letter-spacing: -.035em; }
+.recovery-card p { margin: 8px 0 0; font-size: 9px; line-height: 1.5; color: #858b81; }
+.recovery-watermark { position: absolute; z-index: 0; left: 2%; bottom: -70px; font-size: clamp(90px, 17vw, 230px); font-weight: 800; letter-spacing: -.09em; line-height: .8; color: rgba(255,255,255,.56); white-space: nowrap; pointer-events: none; }
+
+.clinic-section { width: calc(100% - 76px); max-width: var(--page); margin: 0 auto; padding: 100px 0 88px; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 8%; border-bottom: 1px solid var(--line); }
+.clinic-copy .eyebrow { margin-bottom: 17px; }
+.clinic-copy h2 { margin: 0; font-size: clamp(46px, 5vw, 68px); line-height: .92; letter-spacing: -.08em; font-weight: 590; }
+.clinic-info > p { max-width: 520px; margin: 0 0 25px; font-size: 12px; line-height: 1.8; color: var(--muted); }
+.clinic-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 26px; }
+.clinic-facts > div { display: grid; gap: 5px; padding-top: 13px; border-top: 1px solid var(--line); }
+.clinic-facts span { font-size: 7px; font-weight: 800; letter-spacing: .14em; color: #899184; }
+.clinic-facts strong { font-size: 13px; font-weight: 700; letter-spacing: -.03em; }
+.clinic-facts small { font-size: 9px; color: #899184; }
+
+.contact-section { width: min(100% - 76px, var(--page)); margin: 0 auto; padding: 58px; display: grid; grid-template-columns: .8fr 1.2fr; gap: 7%; border-radius: 34px; background: #242a24; color: #fff; }
+.contact-copy .eyebrow { color: #b6c1ae; }
+.contact-copy h2 { margin: 0; font-size: clamp(42px, 4.6vw, 62px); line-height: .94; letter-spacing: -.075em; font-weight: 580; }
+.contact-copy > p:not(.eyebrow) { max-width: 330px; margin: 19px 0 23px; font-size: 11px; line-height: 1.7; color: #bac2b7; }
+.contact-phone { display: block; margin: 0 0 8px; font-size: clamp(22px, 2.4vw, 30px); font-weight: 650; letter-spacing: -.05em; }
+.contact-secondary-phone { display: inline-block; font-size: 11px; color: #b6c0b1; border-bottom: 1px solid rgba(255,255,255,.3); padding-bottom: 4px; }
+.contact-map-wrap { min-width: 0; }
+.map-topline { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 12px; }
+.map-topline span { font-size: 8px; font-weight: 800; letter-spacing: .15em; color: #b4c0ae; }
+.map-topline strong { font-size: 10px; font-weight: 600; color: #e9eee6; }
+.map-frame { height: 290px; overflow: hidden; border-radius: 19px; background: #dfe4dc; }
+.map-frame iframe { width: 100%; height: 100%; display: block; border: 0; }
+.map-link { display: inline-block; margin-top: 12px; font-size: 9px; color: #c6ef70; border-bottom: 1px solid rgba(198,239,112,.45); padding-bottom: 3px; }
+
+.site-footer { margin-top: 72px; background: #e9ebe7; }
+.footer-inner { width: min(100% - 76px, var(--page)); min-height: 110px; margin: 0 auto; padding: 28px 0 30px; display: grid; grid-template-columns: 1.3fr 1fr 1fr; align-items: center; gap: 15px 25px; }
+.footer-name { font-size: 13px; font-weight: 700; letter-spacing: -.03em; }
+.footer-inner > span:not(.copyright) { font-size: 10px; color: #737a70; }
+.footer-inner > a:not(.footer-name) { justify-self: end; font-size: 11px; font-weight: 700; }
+.footer-inner small { grid-column: 1 / 3; max-width: 620px; font-size: 8px; line-height: 1.55; color: #858b81; }
+.copyright { justify-self: end; font-size: 8px; color: #858b81; }
+
+.consult-bar { position: fixed; z-index: 80; left: 50%; bottom: 18px; transform: translate(-50%, 18px); opacity: 0; pointer-events: none; display: flex; align-items: center; gap: 24px; min-height: 58px; padding: 7px 8px 7px 22px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; background: rgba(28,33,29,.96); box-shadow: 0 12px 35px rgba(22,28,21,.2); backdrop-filter: blur(16px); transition: opacity .25s ease, transform .25s ease; }
+.consult-bar.is-visible { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
+.consult-bar span { color: #e7ece3; font-size: 9px; white-space: nowrap; }
+.consult-bar a { min-height: 43px; display: inline-flex; align-items: center; justify-content: center; padding: 0 24px; border-radius: 999px; background: var(--lime); color: #20251d; font-size: 10px; font-weight: 750; white-space: nowrap; transition: background .2s ease, transform .2s ease; }
+.consult-bar a:hover { background: #d6f58d; transform: translateY(-1px); }
+
+@media (max-width: 1080px) {
+  .header-inner, .hero-content, .clinic-section, .contact-section, .footer-inner { width: calc(100% - 48px); max-width: var(--page); }
+  .desktop-nav { gap: 18px; }
+  .header-phone { display: none; }
+  .hero, .hero-content { min-height: 610px; }
+  .hero-content { padding-top: 150px; }
+  .hero-photo { width: 63%; }
+  .services-section, .recovery-section { padding-left: 24px; padding-right: 24px; }
+  .collage-stage { height: 400px; }
+  .collage-card { height: 310px; }
+  .collage-card-treatment { height: 335px; }
+  .implant-section { min-height: 730px; }
+  .implant-visual { width: 59%; top: 44%; }
+  .implant-callout { width: 190px; }
+  .callout-one { left: 3%; }
+  .callout-two { right: 2%; }
+  .callout-three { left: 7%; bottom: 70px; }
+  .callout-four { right: 2%; bottom: 70px; }
+  .clinic-section { gap: 5%; }
+  .contact-section { padding: 42px; gap: 5%; }
+}
+
+@media (max-width: 760px) {
+  html { scroll-padding-top: 76px; }
+  .site-header { position: sticky; top: 0; background: rgba(247,248,245,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(32,34,31,.06); }
+  .header-inner { width: 100%; height: 66px; padding: 0 20px; gap: 12px; }
+  .brand-name { font-size: 12px; }
+  .desktop-nav, .header-phone, .header-cta { display: none; }
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 0 15px; border: 1px solid #d9ded6; border-radius: 999px; background: #fff; color: var(--ink); font-size: 10px; font-weight: 700; }
+  .mobile-nav { display: grid; gap: 0; padding: 4px 20px 17px; background: rgba(247,248,245,.98); border-top: 1px solid #e5e8e1; }
+  .mobile-nav[hidden] { display: none; }
+  .mobile-nav a { padding: 13px 0; border-bottom: 1px solid #e5e8e1; font-size: 12px; font-weight: 650; }
+  .mobile-nav .mobile-nav-phone { margin-top: 9px; padding: 13px 16px; border: 0; border-radius: 999px; background: var(--lime); text-align: center; }
+
+  .hero { min-height: 0; margin: 0; border-radius: 0 0 26px 26px; display: flex; flex-direction: column; background: #d9dcd8; }
+  .hero::before { background: linear-gradient(145deg, #9da59e, #c6cbc5); }
+  .hero::after { background: linear-gradient(180deg, rgba(215,218,214,.08), rgba(215,218,214,0) 55%); }
+  .hero-content { order: 1; width: 100%; min-height: 0; padding: 48px 22px 27px; }
+  .hero .eyebrow { margin-bottom: 17px; font-size: 8px; }
+  .hero h1 { max-width: 100%; font-size: clamp(43px, 12vw, 59px); line-height: .93; color: #fff; text-shadow: 0 1px 16px rgba(32,34,31,.16); }
+  .hero-description { max-width: 340px; margin-top: 17px; font-size: 11px; line-height: 1.65; color: rgba(255,255,255,.88); }
+  .hero-actions { width: 100%; margin-top: 21px; gap: 15px; align-items: center; }
+  .hero-actions .button { min-height: 44px; min-width: 0; flex: 1; padding: 0 15px; font-size: 10px; }
+  .hero-secondary { font-size: 9px; white-space: nowrap; }
+  .hero-details { width: 100%; gap: 22px; margin-top: 27px; padding-top: 0; }
+  .hero-detail { min-width: 0; gap: 4px; }
+  .detail-kicker { font-size: 6px; color: rgba(255,255,255,.72); }
+  .hero-detail strong { font-size: 11px; color: #fff; }
+  .hero-detail > span:last-child { font-size: 8px; color: rgba(255,255,255,.75); }
+  .hero-photo { order: 2; position: relative; right: auto; top: auto; bottom: auto; width: 100%; height: 285px; overflow: hidden; border-radius: 0 0 26px 26px; }
+  .hero-photo img { object-position: 50% 49%; }
+  .hero-photo-note { right: 14px; bottom: 18px; padding: 10px 13px; gap: 9px; }
+  .hero-photo-note strong { font-size: 8px; }
+  .hero-photo-note small { font-size: 7px; }
+  .hero-bottom-label { display: none; }
+
+  .services-section { padding: 67px 18px 54px; border-radius: 26px; }
+  .section-heading .eyebrow { font-size: 7px; margin-bottom: 13px; }
+  .section-heading h2 { font-size: clamp(31px, 8.8vw, 43px); line-height: .98; }
+  .section-intro { max-width: 320px; margin-top: 13px; font-size: 10px; line-height: 1.6; }
+  .collage-stage { height: 640px; margin: 29px auto 5px; max-width: 430px; }
+  .collage-card { height: 230px; border-radius: 23px; box-shadow: 0 20px 40px rgba(40,45,39,.16); }
+  .collage-card-smile { left: 0; top: 0; width: 78%; height: 230px; transform: rotate(-6deg); }
+  .collage-card-treatment { left: auto; right: 0; top: 195px; width: 80%; height: 238px; transform: rotate(4deg); }
+  .collage-card-implant { left: 2%; right: auto; top: 407px; width: 80%; height: 220px; transform: rotate(-4deg); }
+  .collage-card-smile:hover { transform: rotate(-4deg) translateY(-4px); }
+  .collage-card-treatment:hover { transform: rotate(2deg) translateY(-4px); }
+  .collage-card-implant:hover { transform: rotate(-2deg) translateY(-4px); }
+  .collage-label { left: 12px; right: 12px; bottom: 12px; padding: 10px 12px; border-radius: 13px; }
+  .collage-label small { font-size: 6px; margin-bottom: 4px; }
+  .collage-label strong { font-size: 11px; }
+  .service-list-wrap { padding-top: 20px; }
+  .service-list-title { font-size: 8px; margin-bottom: 12px; }
+  .service-list { grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 16px; }
+  .service-list a { gap: 7px; padding: 12px 0; }
+  .service-list a > span { font-size: 7px; }
+  .service-list a strong { font-size: 9px; }
+  .service-list a small { font-size: 7px; line-height: 1.35; }
+  .service-disclaimer { font-size: 8px; line-height: 1.55; }
+
+  .implant-section { min-height: 0; padding: 66px 20px 48px; }
+  .implant-heading { max-width: 100%; }
+  .implant-heading .eyebrow { font-size: 7px; margin-bottom: 13px; }
+  .implant-heading h2 { font-size: clamp(34px, 8.5vw, 43px); line-height: .98; }
+  .implant-heading > p:last-child { max-width: 330px; margin-top: 13px; font-size: 10px; }
+  .implant-visual { position: relative; left: auto; top: auto; width: 112%; max-width: 540px; margin: -2px auto -10px; transform: none; }
+  .implant-visual::before { left: 15%; top: 14%; width: 70%; }
+  .implant-callout { position: relative; top: auto; right: auto; bottom: auto; left: auto; width: 100%; gap: 10px; padding: 14px 0; border-top: 1px solid #e9ece7; }
+  .implant-callout strong { font-size: 11px; }
+  .implant-callout p { margin: 5px 0; max-width: 330px; font-size: 9px; }
+  .implant-callout a { font-size: 8px; }
+
+  .recovery-section { min-height: 0; padding: 57px 18px 42px; border-radius: 26px; }
+  .recovery-heading { display: block; }
+  .recovery-heading .eyebrow { font-size: 7px; margin-bottom: 13px; }
+  .recovery-heading h2 { font-size: clamp(31px, 8.5vw, 42px); line-height: .98; }
+  .recovery-heading > p { max-width: 320px; margin: 13px 0 0; font-size: 9px; }
+  .recovery-cards { display: flex; gap: 9px; overflow-x: auto; margin: 24px -18px 0; padding: 0 18px 12px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .recovery-cards::-webkit-scrollbar { display: none; }
+  .recovery-card { flex: 0 0 78%; min-height: 142px; padding: 15px; border-radius: 16px; scroll-snap-align: start; }
+  .recovery-card > span { margin-bottom: 13px; font-size: 7px; }
+  .recovery-card strong { font-size: 12px; }
+  .recovery-card p { font-size: 8px; }
+  .recovery-watermark { left: 0; bottom: -18px; font-size: 20vw; }
+
+  .clinic-section { width: 100%; padding: 65px 20px 55px; display: flex; flex-direction: column; align-items: stretch; gap: 20px; }
+  .clinic-copy .eyebrow { font-size: 7px; margin-bottom: 13px; }
+  .clinic-copy h2 { font-size: 46px; }
+  .clinic-info > p { margin-top: 0; margin-bottom: 18px; font-size: 10px; line-height: 1.7; }
+  .clinic-facts { gap: 15px; margin-bottom: 20px; }
+  .clinic-facts strong { font-size: 10px; }
+  .clinic-facts small { font-size: 8px; }
+  .clinic-info .button { width: 100%; min-height: 44px; font-size: 10px; }
+
+  .contact-section { width: calc(100% - 24px); padding: 34px 21px 22px; display: flex; flex-direction: column; gap: 25px; border-radius: 25px; }
+  .contact-copy .eyebrow { font-size: 7px; margin-bottom: 13px; }
+  .contact-copy h2 { font-size: 46px; }
+  .contact-copy > p:not(.eyebrow) { max-width: 310px; margin: 14px 0 18px; font-size: 10px; }
+  .contact-phone { font-size: 25px; }
+  .contact-secondary-phone { font-size: 10px; }
+  .map-topline { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .map-topline span { font-size: 7px; }
+  .map-topline strong { font-size: 9px; }
+  .map-frame { height: 255px; border-radius: 16px; }
+  .map-link { font-size: 8px; }
+
+  .site-footer { margin-top: 48px; }
+  .footer-inner { width: 100%; min-height: 0; padding: 27px 20px 100px; grid-template-columns: 1fr 1fr; gap: 13px 12px; }
+  .footer-name { font-size: 11px; }
+  .footer-inner > span:not(.copyright) { justify-self: end; text-align: right; font-size: 8px; }
+  .footer-inner > a:not(.footer-name) { grid-column: 1 / 3; justify-self: start; font-size: 11px; }
+  .footer-inner small { grid-column: 1 / 3; font-size: 7px; }
+  .copyright { grid-column: 1 / 3; justify-self: start; font-size: 7px; }
+
+  .consult-bar { left: 12px; right: 12px; bottom: 11px; transform: translateY(18px); min-height: 54px; justify-content: space-between; gap: 8px; padding: 6px 7px 6px 14px; border-radius: 999px; }
+  .consult-bar.is-visible { transform: translateY(0); }
+  .consult-bar span { max-width: 125px; font-size: 8px; line-height: 1.3; white-space: normal; }
+  .consult-bar a { min-height: 40px; padding: 0 16px; font-size: 9px; }
+}
+
+@media (max-width: 380px) {
+  .header-inner { padding: 0 15px; }
+  .brand-name { font-size: 11px; }
+  .hero-content { padding-left: 18px; padding-right: 18px; }
+  .hero h1 { font-size: 42px; }
+  .hero-actions { gap: 11px; }
+  .hero-actions .button { padding: 0 11px; font-size: 9px; }
+  .hero-secondary { font-size: 8px; }
+  .hero-details { gap: 15px; }
+  .hero-detail strong { font-size: 10px; }
+  .services-section { padding-left: 15px; padding-right: 15px; }
+  .collage-stage { height: 610px; }
+  .collage-card-smile { width: 82%; }
+  .collage-card-treatment { width: 84%; }
+  .collage-card-implant { width: 82%; }
+  .service-list { column-gap: 10px; }
+  .service-list a strong { font-size: 8px; }
+  .service-list a small { font-size: 7px; }
+  .recovery-card { flex-basis: 84%; }
+  .consult-bar span { max-width: 112px; }
+  .consult-bar a { padding: 0 12px; font-size: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+
+/* ===== Services carousel: layered editorial cards ===== */
+.service-carousel-section {
+  padding: 82px 0 72px;
+  overflow: hidden;
+  background: #eceeeb;
+  border-radius: 38px;
+}
+.service-section-inner { width: min(var(--page), calc(100% - 76px)); margin: 0 auto; }
+.service-carousel-heading { max-width: 720px; }
+.service-carousel-heading .eyebrow { justify-content: center; margin-bottom: 14px; }
+.service-carousel-heading .eyebrow::before { display: none; }
+.service-carousel-heading h2 { font-size: clamp(36px, 4.15vw, 56px); line-height: .96; letter-spacing: -.075em; }
+.service-carousel-heading .section-intro { max-width: 470px; margin-top: 14px; font-size: 11px; }
+.service-carousel-stage { position: relative; height: 510px; max-width: 1320px; margin: 12px auto 0; }
+.service-carousel-stage::before {
+  content: ""; position: absolute; z-index: 0; left: 50%; top: 54%; width: 620px; height: 420px;
+  transform: translate(-50%,-50%); border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(203,241,109,.23) 0%, rgba(203,241,109,.09) 40%, transparent 72%);
+  filter: blur(18px); pointer-events: none;
+}
+.service-carousel-controls { position: absolute; z-index: 30; top: 0; left: 50%; display: flex; gap: 7px; transform: translateX(-50%); }
+.service-carousel-control {
+  min-width: 76px; height: 34px; padding: 0 15px; border: 0; border-radius: 999px;
+  background: var(--lime); color: #20241b; font: inherit; font-size: 10px; font-weight: 750;
+  cursor: pointer; transition: transform .2s ease, background .2s ease;
+}
+.service-carousel-control:hover { transform: translateY(-2px); background: #d8f78c; }
+.service-carousel-track { position: relative; z-index: 1; width: 100%; height: 100%; margin: 0 auto; }
+.service-slide {
+  position: absolute; top: 56%; left: 50%; width: 292px; height: 370px; margin: 0;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translate(-50%,-50%) translate3d(var(--slide-x,0px),var(--slide-y,0px),0) rotate(var(--slide-rotation,0deg)) scale(var(--slide-scale,1));
+  transform-origin: 50% 55%; transition: transform .62s cubic-bezier(.2,.75,.25,1), opacity .45s ease, filter .45s ease;
+  z-index: var(--slide-z, 0); filter: saturate(.86);
+}
+.service-slide.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
+.service-slide.is-active { width: 344px; height: 408px; filter: saturate(1.03); }
+.service-card {
+  position: relative; display: block; width: 100%; height: 100%; padding: 0; overflow: hidden;
+  border: 0; border-radius: 30px; background: #cbd0c9; color: #fff; text-align: left;
+  cursor: pointer; box-shadow: 0 22px 58px rgba(35,39,33,.17);
+}
+.service-card img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .75s cubic-bezier(.2,.7,.2,1); }
+.service-card:hover img, .service-slide.is-active .service-card img { transform: scale(1.045); }
+.service-card-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,18,15,.67) 0%, rgba(18,22,19,.24) 38%, rgba(12,17,14,.06) 62%, rgba(9,13,10,.48) 100%); }
+.service-slide[data-slide="2"] .service-card-shade { background: linear-gradient(180deg, rgba(17,21,17,.65), rgba(20,24,17,.12) 45%, rgba(12,16,12,.08)); }
+.service-card-copy { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; padding: 25px 23px 21px; }
+.service-card-kicker { display: block; margin-bottom: 12px; color: rgba(255,255,255,.7); font-size: 7px; font-weight: 800; letter-spacing: .15em; }
+.service-card-copy strong { display: block; max-width: 240px; font-size: 27px; line-height: 1.02; letter-spacing: -.065em; font-weight: 650; text-shadow: 0 2px 16px rgba(0,0,0,.12); }
+.service-card-description { display: block; max-width: 235px; margin-top: 10px; font-size: 11px; line-height: 1.45; color: rgba(255,255,255,.88); }
+.service-card-more { display: inline-flex; align-items: center; justify-content: center; min-height: 30px; margin-top: auto; padding: 0 13px; border: 1px solid rgba(255,255,255,.48); border-radius: 999px; background: rgba(24,29,24,.27); backdrop-filter: blur(10px); color: #fff; font-size: 9px; font-weight: 700; }
+.service-card:focus-visible { outline: 3px solid #b7e94e; outline-offset: 5px; }
+.service-carousel-dots { position: absolute; z-index: 25; bottom: 2px; left: 50%; display: flex; align-items: center; gap: 8px; transform: translateX(-50%); }
+.service-carousel-dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 99px; background: #d0d2cf; cursor: pointer; transition: width .25s ease, background .25s ease; }
+.service-carousel-dots button[aria-current="true"] { width: 28px; background: var(--lime); }
+.service-category-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; max-width: 1180px; margin: 25px auto 0; }
+.service-category-nav button {
+  min-height: 42px; padding: 0 17px; border: 1px solid rgba(40,44,37,.08); border-radius: 999px;
+  background: rgba(255,255,255,.72); color: #30342e; font: inherit; font-size: 10px; font-weight: 650;
+  cursor: pointer; transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.service-category-nav button:hover { transform: translateY(-2px); border-color: rgba(45,53,35,.2); }
+.service-category-nav button[aria-selected="true"] { background: var(--lime); border-color: var(--lime); color: #20241b; }
+.service-active-info {
+  display: grid; grid-template-columns: 150px minmax(0,1fr) auto; align-items: center; gap: 24px;
+  max-width: 980px; margin: 24px auto 0; padding: 19px 24px; border: 1px solid rgba(255,255,255,.8);
+  border-radius: 22px; background: rgba(255,255,255,.68); box-shadow: 0 12px 35px rgba(38,43,35,.035);
+}
+.service-active-index { display: grid; gap: 7px; color: #83897f; font-size: 7px; font-weight: 800; letter-spacing: .14em; }
+.service-active-index span { color: #a0a69c; font-size: 10px; letter-spacing: .06em; }
+.service-active-copy h3 { margin: 0 0 5px; font-size: 19px; line-height: 1; letter-spacing: -.045em; font-weight: 650; }
+.service-active-copy p { margin: 0; max-width: 520px; color: #7e857a; font-size: 10px; line-height: 1.5; }
+.service-active-link { display: inline-flex; align-items: center; justify-content: center; min-height: 39px; padding: 0 17px; border-radius: 999px; background: var(--lime); font-size: 9px; font-weight: 750; white-space: nowrap; transition: transform .2s ease, background .2s ease; }
+.service-active-link:hover { transform: translateY(-2px); background: #d8f78c; }
+.service-carousel-section .service-disclaimer { max-width: 980px; margin: 14px auto 0; text-align: center; font-size: 8px; line-height: 1.55; color: #92988f; }
+
+@media (max-width: 1080px) and (min-width: 761px) {
+  .service-section-inner { width: calc(100% - 48px); }
+  .service-carousel-stage { height: 465px; }
+  .service-slide { width: 250px; height: 330px; }
+  .service-slide.is-active { width: 300px; height: 370px; }
+  .service-card-copy { padding: 22px 19px 18px; }
+  .service-card-copy strong { font-size: 23px; }
+  .service-card-description { font-size: 10px; }
+  .service-category-nav { gap: 6px; }
+  .service-category-nav button { padding: 0 13px; }
+}
+
+@media (max-width: 760px) {
+  .service-carousel-section { padding: 56px 0 42px; border-radius: 26px; }
+  .service-section-inner { width: 100%; }
+  .service-carousel-heading { padding: 0 20px; }
+  .service-carousel-heading .eyebrow { margin-bottom: 13px; font-size: 8px; }
+  .service-carousel-heading h2 { font-size: clamp(31px, 8.2vw, 39px); line-height: .98; }
+  .service-carousel-heading .section-intro { max-width: 330px; margin-top: 12px; font-size: 9px; }
+  .service-carousel-stage { height: auto; margin: 21px 0 0; }
+  .service-carousel-stage::before { width: 90vw; height: 300px; top: 48%; filter: blur(20px); }
+  .service-carousel-controls { display: none; }
+  .service-carousel-track {
+    display: flex; gap: 13px; height: auto; overflow-x: auto; overflow-y: visible; padding: 18px 22px 30px;
+    scroll-snap-type: x mandatory; scroll-padding-inline: 22px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain; touch-action: pan-x;
+  }
+  .service-carousel-track::-webkit-scrollbar { display: none; }
+  .service-slide, .service-slide.is-active {
+    position: relative; top: auto; left: auto; flex: 0 0 min(78vw, 330px); width: min(78vw, 330px); height: 370px;
+    margin: 0; opacity: 1 !important; visibility: visible !important; pointer-events: auto; filter: none;
+    transform: none !important; transition: none; scroll-snap-align: center; z-index: 1 !important;
+  }
+  .service-card { border-radius: 25px; box-shadow: 0 18px 36px rgba(35,39,33,.14); }
+  .service-card-copy { padding: 22px 20px 18px; }
+  .service-card-copy strong { font-size: 25px; }
+  .service-card-description { max-width: 230px; font-size: 10px; }
+  .service-card-more { min-height: 29px; }
+  .service-carousel-dots { position: static; justify-content: center; margin: -3px auto 0; transform: none; }
+  .service-category-nav {
+    justify-content: flex-start; flex-wrap: nowrap; gap: 7px; max-width: none; margin: 22px 0 0; padding: 0 20px 7px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;
+  }
+  .service-category-nav::-webkit-scrollbar { display: none; }
+  .service-category-nav button { flex: 0 0 auto; min-height: 38px; padding: 0 14px; font-size: 9px; scroll-snap-align: start; }
+  .service-active-info { grid-template-columns: 1fr; gap: 9px; margin: 16px 20px 0; padding: 17px; border-radius: 18px; }
+  .service-active-index { display: flex; align-items: center; justify-content: space-between; font-size: 7px; }
+  .service-active-index span { font-size: 9px; }
+  .service-active-copy h3 { font-size: 18px; }
+  .service-active-copy p { font-size: 9px; }
+  .service-active-link { justify-self: start; min-height: 37px; margin-top: 3px; padding: 0 15px; font-size: 9px; }
+  .service-carousel-section .service-disclaimer { margin: 12px 20px 0; text-align: left; font-size: 7px; }
+}
+
+/* Final proportion tuning for the wide desktop cover-flow */
+@media (min-width: 761px) {
+  .service-carousel-stage { height: 480px; }
+  .service-slide { width: 280px; height: 320px; top: 52%; }
+  .service-slide.is-far { width: 280px; height: 320px; }
+  .service-slide.is-near { width: 320px; height: 350px; }
+  .service-slide.is-active { width: 360px; height: 370px; }
+  .service-card-copy { padding: 25px 22px 20px; }
+  .service-card-copy strong { font-size: 28px; }
+}
+@media (min-width: 761px) {
+  .service-carousel-stage { height: 540px; }
+  .service-slide { top: 46%; }
+}
+@media (min-width: 761px) {
+  .service-carousel-stage { height: 480px; }
+  .service-slide { top: 52%; }
+  .service-carousel-dots { position: static; justify-content: center; transform: none; margin: 0 auto; }
+}
+
+
+/* Detailed implant showcase — responsive editorial layout */
+.implant-detailed {
+  isolation: isolate;
+  min-height: 0;
+  padding: 76px clamp(26px, 5vw, 76px) 34px;
+  border-radius: 34px;
+  background: linear-gradient(180deg, #fff 0%, #fcfdfb 100%);
+}
+.implant-detailed::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  opacity: .8;
+  background:
+    radial-gradient(circle at 51% 46%, rgba(204, 244, 127, .20), transparent 31%),
+    repeating-radial-gradient(circle at 51% 48%, transparent 0 145px, rgba(139, 157, 123, .10) 146px 147px, transparent 148px 205px);
+  pointer-events: none;
+}
+.implant-detailed::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 29%; top: 20%; width: 44%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(203, 244, 119, .20), rgba(203, 244, 119, .07) 48%, transparent 72%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+.implant-detailed-heading { max-width: 680px; margin: 0 0 4px; }
+.implant-detailed-heading .eyebrow { margin-bottom: 15px; }
+.implant-detailed-heading h2 { max-width: 660px; font-size: clamp(40px, 4.5vw, 62px); line-height: .96; letter-spacing: -.075em; }
+.implant-heading-accent { display: block; width: 74px; height: 6px; margin-top: 22px; border-radius: 10px; background: linear-gradient(90deg, #398a28, #c8f35d); }
+.implant-detailed-heading > p:last-child { max-width: 470px; margin-top: 17px; font-size: 13px; line-height: 1.65; color: #71786f; }
+.implant-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(175px, .82fr) minmax(440px, 2.25fr) minmax(175px, .82fr);
+  gap: clamp(10px, 2vw, 28px);
+  align-items: center;
+  min-height: 590px;
+  margin: -12px auto 0;
+}
+.implant-features { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: space-around; gap: 76px; min-height: 510px; }
+.implant-feature { display: grid; grid-template-columns: 12px minmax(0,1fr); gap: 12px; max-width: 255px; }
+.implant-feature-dot { width: 10px; height: 10px; margin-top: 5px; border: 2px solid #273126; border-radius: 50%; background: #c9f26e; box-shadow: 0 0 0 5px rgba(201,242,110,.18); }
+.implant-feature-kicker { display: block; margin-bottom: 8px; color: #92998f; font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+.implant-feature h3 { margin: 0; color: #20241f; font-size: 16px; line-height: 1.18; letter-spacing: -.035em; }
+.implant-feature p { margin: 9px 0 10px; color: #737a70; font-size: 12px; line-height: 1.6; }
+.implant-feature a { display: inline-block; color: #252a22; font-size: 11px; font-weight: 750; text-decoration: none; border-bottom: 1px solid #b7d66d; padding-bottom: 3px; }
+.implant-feature a:hover { border-color: #3f7c27; }
+.implant-art { position: relative; z-index: 1; width: 100%; max-width: 690px; margin: 0 auto; align-self: center; }
+.implant-art img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+.implant-art figcaption { margin-top: -3px; color: #a0a69d; font-size: 9px; text-align: center; letter-spacing: .02em; }
+.implant-detail-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 18px; margin-top: 12px; }
+.implant-detail-panel { min-width: 0; padding: 26px 28px 25px; border: 1px solid rgba(36,45,31,.08); border-radius: 24px; background: rgba(255,255,255,.78); box-shadow: 0 12px 36px rgba(30,43,25,.035); }
+.implant-panel-heading .eyebrow { margin: 0 0 8px; font-size: 8px; }
+.implant-panel-heading h3 { margin: 0 0 21px; font-size: 23px; line-height: 1.05; letter-spacing: -.055em; }
+.implant-components-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 24px; }
+.implant-component { display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 10px; align-items: start; }
+.implant-component > span, .implant-process-list > li > span { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #315e3a; color: #fff; font-size: 12px; font-weight: 800; }
+.implant-component strong { display: block; margin: 2px 0 5px; font-size: 12px; }
+.implant-component p { margin: 0; color: #7b8278; font-size: 10px; line-height: 1.5; }
+.implant-process-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 17px 20px; margin: 0; padding: 0; list-style: none; }
+.implant-process-list li { display: grid; grid-template-columns: 30px minmax(0,1fr); gap: 10px; align-items: start; }
+.implant-process-list li > span { background: #c9f26e; color: #1f2b19; }
+.implant-process-list strong { display: block; margin: 2px 0 5px; font-size: 11px; line-height: 1.25; }
+.implant-process-list p { margin: 0; color: #7b8278; font-size: 10px; line-height: 1.5; }
+.implant-tech-note { display: grid; grid-template-columns: 1fr 1.1fr; gap: 34px; align-items: center; margin-top: 18px; padding: 27px 30px; border-radius: 23px; background: #eff1ed; }
+.implant-tech-copy .eyebrow { margin: 0 0 9px; font-size: 8px; }
+.implant-tech-copy h3 { max-width: 440px; margin: 0 0 9px; font-size: 23px; line-height: 1.05; letter-spacing: -.055em; }
+.implant-tech-copy > p:last-child { max-width: 550px; margin: 0; color: #777e74; font-size: 11px; line-height: 1.6; }
+.implant-tech-list { margin: 0; }
+.implant-tech-list > div { display: flex; justify-content: space-between; gap: 18px; padding: 10px 0; border-bottom: 1px solid rgba(40,48,35,.10); }
+.implant-tech-list > div:last-child { border-bottom: 0; }
+.implant-tech-list dt { color: #747b71; font-size: 10px; }
+.implant-tech-list dd { margin: 0; color: #2a3026; font-size: 10px; font-weight: 750; text-align: right; }
+.implant-disclaimer { max-width: 930px; margin: 15px auto 0; color: #9aa095; font-size: 9px; line-height: 1.55; text-align: center; }
+
+@media (max-width: 1080px) {
+  .implant-detailed { padding-left: 28px; padding-right: 28px; }
+  .implant-layout { grid-template-columns: minmax(145px,.8fr) minmax(350px,2fr) minmax(145px,.8fr); min-height: 520px; gap: 8px; }
+  .implant-features { min-height: 440px; gap: 48px; }
+  .implant-feature h3 { font-size: 14px; }
+  .implant-feature p { font-size: 10px; }
+  .implant-detail-panel { padding: 22px 20px; }
+}
+@media (max-width: 760px) {
+  .implant-detailed { min-height: 0; padding: 57px 19px 32px; border-radius: 26px; }
+  .implant-detailed::before { background: repeating-radial-gradient(circle at 50% 36%, transparent 0 95px, rgba(139,157,123,.09) 96px 97px, transparent 98px 140px); }
+  .implant-detailed-heading { max-width: 100%; margin-bottom: 0; }
+  .implant-detailed-heading .eyebrow { font-size: 7px; margin-bottom: 13px; }
+  .implant-detailed-heading h2 { font-size: clamp(35px, 9vw, 46px); line-height: .98; }
+  .implant-heading-accent { width: 54px; height: 5px; margin-top: 15px; }
+  .implant-detailed-heading > p:last-child { max-width: 340px; margin-top: 12px; font-size: 10px; }
+  .implant-layout { grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-areas: "art art" "left right"; gap: 12px 15px; min-height: 0; margin: 7px 0 0; }
+  .implant-art { grid-area: art; width: calc(100% + 12px); max-width: none; margin: -2px -6px -7px; }
+  .implant-art figcaption { margin-top: -2px; font-size: 8px; }
+  .implant-features { min-height: 0; justify-content: flex-start; gap: 0; }
+  .implant-features-left { grid-area: left; }
+  .implant-features-right { grid-area: right; }
+  .implant-feature { grid-template-columns: 9px minmax(0,1fr); gap: 8px; max-width: none; min-height: 145px; padding: 13px 0; border-top: 1px solid #e8ece4; }
+  .implant-feature-dot { width: 8px; height: 8px; margin-top: 4px; box-shadow: 0 0 0 4px rgba(201,242,110,.18); }
+  .implant-feature-kicker { margin-bottom: 6px; font-size: 6px; line-height: 1.35; }
+  .implant-feature h3 { font-size: 11px; line-height: 1.2; }
+  .implant-feature p { margin: 6px 0 7px; font-size: 8px; line-height: 1.45; }
+  .implant-feature a { font-size: 8px; }
+  .implant-detail-grid { grid-template-columns: 1fr; gap: 11px; margin-top: 16px; }
+  .implant-detail-panel { padding: 19px 17px; border-radius: 19px; }
+  .implant-panel-heading .eyebrow { font-size: 7px; }
+  .implant-panel-heading h3 { margin-bottom: 15px; font-size: 20px; }
+  .implant-components-grid { gap: 15px 12px; }
+  .implant-component { grid-template-columns: 27px minmax(0,1fr); gap: 8px; }
+  .implant-component > span, .implant-process-list > li > span { width: 25px; height: 25px; font-size: 10px; }
+  .implant-component strong { font-size: 10px; }
+  .implant-component p { font-size: 8px; }
+  .implant-process-list { gap: 14px 12px; }
+  .implant-process-list li { grid-template-columns: 25px minmax(0,1fr); gap: 8px; }
+  .implant-process-list strong { font-size: 9px; }
+  .implant-process-list p { font-size: 8px; }
+  .implant-tech-note { grid-template-columns: 1fr; gap: 14px; margin-top: 12px; padding: 20px 17px; border-radius: 19px; }
+  .implant-tech-copy h3 { font-size: 20px; }
+  .implant-tech-copy > p:last-child { font-size: 9px; }
+  .implant-tech-list > div { gap: 10px; padding: 9px 0; }
+  .implant-tech-list dt, .implant-tech-list dd { font-size: 8px; }
+  .implant-disclaimer { margin-top: 12px; font-size: 8px; text-align: left; }
+}
+@media (max-width: 390px) {
+  .implant-detailed { padding-left: 16px; padding-right: 16px; }
+  .implant-feature { min-height: 155px; }
+  .implant-components-grid, .implant-process-list { grid-template-columns: 1fr; }
+  .implant-tech-list > div { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .implant-tech-list dd { text-align: left; }
+}
+
+
+/* Implant section — transparent exploded-view illustration */
+.implant-section.implant-detailed {
+  position: relative;
+  isolation: isolate;
+  min-height: 0;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 86px 38px 72px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0;
+}
+.implant-detailed .implant-orbit {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 45%;
+  width: min(86vw, 1040px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(177, 193, 166, .18);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.implant-detailed .implant-orbit-two {
+  width: min(64vw, 760px);
+  border-color: rgba(177, 193, 166, .16);
+}
+.implant-detailed-heading {
+  position: relative;
+  z-index: 2;
+  max-width: 660px;
+  margin: 0;
+}
+.implant-detailed-heading .eyebrow { margin-bottom: 15px; }
+.implant-detailed-heading h2 {
+  margin: 0;
+  font-size: clamp(38px, 4.1vw, 54px);
+  line-height: .98;
+  letter-spacing: -.075em;
+  font-weight: 620;
+}
+.implant-heading-accent {
+  display: block;
+  width: 74px;
+  height: 5px;
+  margin: 19px 0 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4e8c37, #c9f16d);
+}
+.implant-detailed-heading > p:last-child {
+  max-width: 440px;
+  margin: 17px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.implant-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(175px, .82fr) minmax(0, 2.55fr) minmax(175px, .82fr);
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
+  max-width: 1320px;
+  margin: 30px auto 0;
+}
+.implant-features {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 72px;
+  min-width: 0;
+  min-height: 360px;
+  padding: 12px 0;
+}
+.implant-feature {
+  display: grid;
+  grid-template-columns: 11px minmax(0, 1fr);
+  gap: 11px;
+  align-items: start;
+  min-width: 0;
+}
+.implant-feature-dot {
+  width: 9px;
+  height: 9px;
+  margin-top: 4px;
+  border: 2px solid #303b2b;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 5px rgba(201, 241, 109, .18);
+}
+.implant-feature-kicker {
+  display: block;
+  margin-bottom: 8px;
+  color: #8a9185;
+  font-size: 7px;
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+.implant-feature h3 {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  font-weight: 750;
+}
+.implant-feature p {
+  margin: 8px 0 10px;
+  color: #777f75;
+  font-size: 10px;
+  line-height: 1.55;
+}
+.implant-feature a {
+  display: inline-block;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(32,34,31,.32);
+  font-size: 9px;
+  font-weight: 750;
+}
+.implant-feature a:hover { border-color: #8cb84b; }
+.implant-art {
+  width: 100%;
+  max-width: 760px;
+  min-width: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+.implant-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.implant-art figcaption {
+  margin-top: -2px;
+  color: #92998f;
+  font-size: 8px;
+  line-height: 1.4;
+}
+.implant-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  margin: 54px auto 0;
+  max-width: 1320px;
+}
+.implant-detail-panel {
+  min-width: 0;
+  padding: 24px 25px;
+  border: 1px solid rgba(38, 46, 34, .09);
+  border-radius: 22px;
+  background: #f7f8f5;
+}
+.implant-panel-heading .eyebrow {
+  margin: 0 0 8px;
+  font-size: 7px;
+}
+.implant-panel-heading h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+.implant-components-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 20px;
+  margin-top: 22px;
+}
+.implant-component {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+.implant-component > span,
+.implant-process-list li > span {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #275d3b;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+.implant-component strong,
+.implant-process-list strong {
+  display: block;
+  font-size: 11px;
+  line-height: 1.3;
+}
+.implant-component p,
+.implant-process-list p {
+  margin: 5px 0 0;
+  color: #7a8177;
+  font-size: 9px;
+  line-height: 1.5;
+}
+.implant-process-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 20px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.implant-process-list li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+.implant-tech-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+  align-items: center;
+  gap: 30px;
+  margin: 14px auto 0;
+  padding: 26px;
+  max-width: 1320px;
+  border: 1px solid rgba(38, 46, 34, .09);
+  border-radius: 22px;
+  background: #fff;
+}
+.implant-tech-copy .eyebrow {
+  margin: 0 0 8px;
+  font-size: 7px;
+}
+.implant-tech-copy h3 {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+.implant-tech-copy > p:last-child {
+  max-width: 620px;
+  margin: 10px 0 0;
+  color: #777f75;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.implant-tech-list { margin: 0; }
+.implant-tech-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(38, 46, 34, .09);
+}
+.implant-tech-list div:last-child { border-bottom: 0; }
+.implant-tech-list dt,
+.implant-tech-list dd { margin: 0; font-size: 9px; line-height: 1.4; }
+.implant-tech-list dt { color: #7b8377; }
+.implant-tech-list dd { font-weight: 700; text-align: right; }
+.implant-disclaimer {
+  max-width: 1320px;
+  margin: 15px auto 0;
+  color: #8c9388;
+  font-size: 8px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1080px) and (min-width: 761px) {
+  .implant-section.implant-detailed { padding: 72px 26px 58px; }
+  .implant-layout {
+    grid-template-columns: minmax(145px, .75fr) minmax(0, 2.2fr) minmax(145px, .75fr);
+    gap: 12px;
+  }
+  .implant-features { min-height: 315px; gap: 45px; }
+  .implant-feature h3 { font-size: 11px; }
+  .implant-feature p { font-size: 9px; }
+  .implant-art img { max-height: 440px; }
+  .implant-detail-panel { padding: 20px; }
+  .implant-tech-note { gap: 20px; padding: 22px; }
+}
+@media (max-width: 760px) {
+  .implant-section.implant-detailed {
+    padding: 62px 20px 46px;
+    overflow: hidden;
+  }
+  .implant-detailed-heading h2 {
+    font-size: clamp(34px, 9vw, 43px);
+    line-height: .98;
+  }
+  .implant-detailed-heading > p:last-child {
+    max-width: 340px;
+    margin-top: 13px;
+    font-size: 10px;
+  }
+  .implant-heading-accent { width: 62px; height: 4px; margin-top: 15px; }
+  .implant-detailed .implant-orbit { width: 125vw; top: 32%; }
+  .implant-detailed .implant-orbit-two { width: 92vw; }
+  .implant-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 16px;
+    margin-top: 14px;
+  }
+  .implant-art {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto 2px;
+  }
+  .implant-art img { max-height: none; }
+  .implant-art figcaption {
+    margin-top: -1px;
+    font-size: 7px;
+  }
+  .implant-features {
+    min-height: 0;
+    gap: 18px;
+    padding: 8px 0 0;
+  }
+  .implant-feature {
+    grid-template-columns: 8px minmax(0, 1fr);
+    gap: 8px;
+  }
+  .implant-feature-dot {
+    width: 7px;
+    height: 7px;
+    margin-top: 3px;
+    box-shadow: 0 0 0 3px rgba(201, 241, 109, .18);
+  }
+  .implant-feature-kicker {
+    margin-bottom: 5px;
+    font-size: 6px;
+    letter-spacing: .1em;
+  }
+  .implant-feature h3 { font-size: 10px; }
+  .implant-feature p { margin: 5px 0 6px; font-size: 8px; line-height: 1.45; }
+  .implant-feature a { font-size: 8px; }
+  .implant-detail-grid { grid-template-columns: 1fr; gap: 10px; margin-top: 28px; }
+  .implant-detail-panel { padding: 19px 17px; border-radius: 18px; }
+  .implant-panel-heading h3 { font-size: 18px; }
+  .implant-components-grid { gap: 14px 12px; margin-top: 17px; }
+  .implant-component { grid-template-columns: 23px minmax(0, 1fr); gap: 8px; }
+  .implant-component > span,
+  .implant-process-list li > span { width: 23px; height: 23px; font-size: 9px; }
+  .implant-component strong,
+  .implant-process-list strong { font-size: 9px; }
+  .implant-component p,
+  .implant-process-list p { font-size: 8px; }
+  .implant-process-list { gap: 14px 12px; margin-top: 17px; }
+  .implant-process-list li { grid-template-columns: 23px minmax(0, 1fr); gap: 8px; }
+  .implant-tech-note { grid-template-columns: 1fr; gap: 14px; padding: 19px 17px; border-radius: 18px; }
+  .implant-tech-copy h3 { font-size: 18px; }
+  .implant-tech-copy > p:last-child { font-size: 9px; }
+  .implant-tech-list div { padding: 9px 0; }
+  .implant-tech-list dt,
+  .implant-tech-list dd { font-size: 8px; }
+  .implant-disclaimer { margin-top: 12px; font-size: 7px; }
+}
+
+
+/* Recovery watermark: keep the full word visible instead of clipping it below the section */
+.recovery-watermark {
+  bottom: 0;
+  font-size: clamp(72px, 9.5vw, 136px);
+  line-height: .8;
+  max-width: 96%;
+}
+@media (max-width: 760px) {
+  .recovery-watermark {
+    left: 0;
+    bottom: 0;
+    font-size: clamp(34px, 9.4vw, 72px);
+    line-height: .8;
+  }
+}
+
+
+/* Leave a little breathing room below the complete watermark */
+@media (min-width: 761px) {
+  .recovery-section { padding-bottom: 90px; }
+  .recovery-watermark { bottom: 8px; }
+}
+@media (max-width: 760px) {
+  .recovery-watermark { bottom: 8px; }
+}
+
+
+/* Intentional half-hidden recovery watermark — matches the supplied reference */
+.recovery-section {
+  padding-bottom: 65px;
+}
+.recovery-watermark {
+  left: 2%;
+  bottom: -70px;
+  max-width: none;
+  font-size: clamp(90px, 17vw, 230px);
+  line-height: .8;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .recovery-section {
+    padding-bottom: 42px;
+  }
+  .recovery-watermark {
+    left: 0;
+    bottom: -22px;
+    max-width: none;
+    font-size: 20vw;
+    line-height: .8;
+  }
+}
+
+
+/* Mobile service carousel: layered cover-flow with finger swipes */
+@media (max-width: 760px) {
+  .service-carousel-stage {
+    position: relative;
+    height: 390px;
+    margin: 20px 0 0;
+    overflow: visible;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .service-carousel-stage::before {
+    width: 100vw;
+    height: 330px;
+    top: 50%;
+    filter: blur(22px);
+  }
+  .service-carousel-track {
+    position: relative;
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible !important;
+    scroll-snap-type: none;
+    scroll-padding: 0;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: auto;
+  }
+  .service-slide,
+  .service-slide.is-active,
+  .service-slide.is-near,
+  .service-slide.is-far {
+    position: absolute !important;
+    top: 49% !important;
+    left: 50% !important;
+    display: block;
+    flex: none !important;
+    width: min(58vw, 230px);
+    height: 300px;
+    margin: 0;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translate(-50%, -50%)
+      translate3d(var(--slide-x, 0px), var(--slide-y, 0px), 0)
+      rotate(var(--slide-rotation, 0deg))
+      scale(var(--slide-scale, .72)) !important;
+    transform-origin: 50% 55%;
+    transition:
+      transform .58s cubic-bezier(.2,.75,.25,1),
+      opacity .35s ease,
+      filter .35s ease,
+      width .35s ease,
+      height .35s ease !important;
+    scroll-snap-align: none;
+    z-index: var(--slide-z, 0) !important;
+    filter: saturate(.9);
+  }
+  .service-slide.is-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+  .service-slide.is-active {
+    width: min(70vw, 274px);
+    height: 330px;
+    filter: saturate(1.04);
+  }
+  .service-slide.is-near {
+    width: min(58vw, 230px);
+    height: 300px;
+  }
+  .service-slide.is-far {
+    width: min(54vw, 210px);
+    height: 275px;
+    filter: saturate(.78);
+  }
+  .service-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    box-shadow: 0 17px 38px rgba(35,39,33,.18);
+  }
+  .service-card-copy { padding: 19px 17px 16px; }
+  .service-card-kicker { margin-bottom: 9px; font-size: 6px; }
+  .service-card-copy strong { max-width: 190px; font-size: 23px; }
+  .service-card-description { max-width: 190px; margin-top: 8px; font-size: 9px; }
+  .service-card-more { min-height: 27px; padding: 0 11px; font-size: 8px; }
+  .service-carousel-dots {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    transform: none;
+    gap: 7px;
+  }
+  .service-carousel-dots button { width: 8px; height: 8px; }
+  .service-carousel-dots button[aria-current="true"] { width: 25px; }
+}
+
+@media (max-width: 380px) {
+  .service-carousel-stage { height: 360px; }
+  .service-slide,
+  .service-slide.is-near { height: 278px; }
+  .service-slide.is-active { height: 306px; }
+  .service-slide.is-far { height: 250px; }
+  .service-card-copy { padding: 17px 15px 14px; }
+  .service-card-copy strong { font-size: 21px; }
+}
+
+
+/* Keep the complete background word visible while retaining the half-hidden effect */
+.recovery-watermark {
+  left: 50%;
+  bottom: -60px;
+  width: max-content;
+  max-width: none;
+  transform: translateX(-50%);
+  font-size: clamp(30px, 10.5vw, 154px);
+  line-height: .8;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .recovery-watermark {
+    left: 50%;
+    bottom: -16px;
+    font-size: clamp(30px, 10.5vw, 54px);
+    transform: translateX(-50%);
+  }
+}
